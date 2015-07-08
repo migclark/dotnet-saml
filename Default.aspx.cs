@@ -20,6 +20,19 @@ public partial class _Default : System.Web.UI.Page
         Response.Write("<div>Page_Load</div>");
         
         AccountSettings accountSettings = new AccountSettings();
+        
+        OneLogin.Saml.Response samlResponse = new Response(accountSettings);
+        samlResponse.LoadXmlFromBase64(Request.Form["SAMLResponse"]);
+
+        if (samlResponse.IsValid())
+        {
+            Response.Write("OK!");
+            Response.Write(samlResponse.GetNameID());
+        }
+        else
+        {
+            Response.Write("Failed");
+        }
 
         //OneLogin.Saml.AuthRequest req = new AuthRequest(new AppSettings(), accountSettings);
         //Response.Redirect(accountSettings.idp_sso_target_url + "?SAMLRequest=" + Server.UrlEncode(req.GetRequest(AuthRequest.AuthRequestFormat.Base64)));
