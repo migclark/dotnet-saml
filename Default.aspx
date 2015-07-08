@@ -4,9 +4,11 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
-    <title>Untitled Page</title>
+    <title>SAML Test Bed</title>
 </head>
 <body>
+
+<h1>SAML Test Bed</h1>
 
 </body>
 </html>
