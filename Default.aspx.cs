@@ -22,6 +22,9 @@ public partial class _Default : System.Web.UI.Page
         AccountSettings accountSettings = new AccountSettings();
         
         OneLogin.Saml.Response samlResponse = new Response(accountSettings);
+        Response.Write("<div>"+Request.Form["SAMLResponse"]+"</div>");
+        
+        /*
         samlResponse.LoadXmlFromBase64(Request.Form["SAMLResponse"]);
 
         if (samlResponse.IsValid())
@@ -33,7 +36,9 @@ public partial class _Default : System.Web.UI.Page
         {
             Response.Write("Failed");
         }
-
+        */
+        
+        
         //OneLogin.Saml.AuthRequest req = new AuthRequest(new AppSettings(), accountSettings);
         //Response.Redirect(accountSettings.idp_sso_target_url + "?SAMLRequest=" + Server.UrlEncode(req.GetRequest(AuthRequest.AuthRequestFormat.Base64)));
     }
