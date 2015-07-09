@@ -22,7 +22,7 @@ public partial class _Default : System.Web.UI.Page
         AccountSettings accountSettings = new AccountSettings();
         
         OneLogin.Saml.Response samlResponse = new Response(accountSettings);
-        Response.Write("<div>"+Request.Form["SAMLResponse"]+"</div>");
+        Response.Write("<div>SAMLResponse :: "+Request.Form["SAMLResponse"]+"</div>");
         
         /*
         samlResponse.LoadXmlFromBase64(Request.Form["SAMLResponse"]);
