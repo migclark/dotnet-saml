@@ -21,8 +21,8 @@ public partial class _Default : System.Web.UI.Page
         
         AccountSettings accountSettings = new AccountSettings();
         
-        string SAMLResponse = Request.QueryString["SAMLResponse"];
-        Response.Write("<div>SAMLResponse :: "+SAMLResponse+"</div>");
+        string SAMLRequest = Request["SAMLRequest"];
+        Response.Write("<div>SAMLResponse :: "+SAMLRequest+"</div>");
         
         /*
         OneLogin.Saml.Response samlResponse = new Response(accountSettings);
