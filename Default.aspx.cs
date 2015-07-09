@@ -24,7 +24,7 @@ public partial class _Default : System.Web.UI.Page
         
         AccountSettings accountSettings = new AccountSettings();
         OneLogin.Saml.Response samlResponse = new Response(accountSettings);
-        samlResponse.LoadXmlFromBase64(Request.Form["SAMLResponse"]);
+        samlResponse.LoadXmlFromBase64(Request["SAMLRequest"]);
         
         if (samlResponse.IsValid())
         {
