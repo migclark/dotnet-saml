@@ -21,10 +21,12 @@ public partial class _Default : System.Web.UI.Page
         
         AccountSettings accountSettings = new AccountSettings();
         
-        OneLogin.Saml.Response samlResponse = new Response(accountSettings);
-        Response.Write("<div>SAMLResponse :: "+Request.Form["SAMLResponse"]+"</div>");
+        string SAMLResponse = Request.QueryString["SAMLResponse"]
+        Response.Write("<div>SAMLResponse :: "+SAMLResponse+"</div>");
         
         /*
+        OneLogin.Saml.Response samlResponse = new Response(accountSettings);
+        
         samlResponse.LoadXmlFromBase64(Request.Form["SAMLResponse"]);
 
         if (samlResponse.IsValid())
