@@ -21,8 +21,13 @@ public partial class _Default : System.Web.UI.Page
         
         AccountSettings accountSettings = new AccountSettings();
         
-        string SAMLRequest = Request["SAMLRequest"];
-        Response.Write("<div>SAMLResponse :: "+SAMLRequest+"</div>");
+        string RawSAMLRequest = Request["SAMLRequest"];
+        Response.Write("<div>Raw SAMLRequest :: "+RawSAMLRequest+"</div>");
+        
+        System.Text.ASCIIEncoding enc = new System.Text.ASCIIEncoding();
+        string SAMLRequest = enc.GetString(Convert.FromBase64String(RawSAMLRequest));
+        Response.Write("<div>SAMLRequest :: "+SAMLRequest+"</div>");
+        
         
         /*
         OneLogin.Saml.Response samlResponse = new Response(accountSettings);
