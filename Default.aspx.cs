@@ -19,21 +19,13 @@ public partial class _Default : System.Web.UI.Page
         Response.Write("<div>SAML Test Bed</div>");
         Response.Write("<div>Page_Load</div>");
         
-        AccountSettings accountSettings = new AccountSettings();
-        
         string RawSAMLRequest = Request["SAMLRequest"];
         Response.Write("<div>Raw SAMLRequest :: "+RawSAMLRequest+"</div>");
         
-        System.Text.ASCIIEncoding enc = new System.Text.ASCIIEncoding();
-        string SAMLRequest = enc.GetString(Convert.FromBase64String(RawSAMLRequest));
-        Response.Write("<div>SAMLRequest :: "+SAMLRequest+"</div>");
-        
-        
-        /*
+        AccountSettings accountSettings = new AccountSettings();
         OneLogin.Saml.Response samlResponse = new Response(accountSettings);
-        
         samlResponse.LoadXmlFromBase64(Request.Form["SAMLResponse"]);
-
+        
         if (samlResponse.IsValid())
         {
             Response.Write("OK!");
@@ -43,7 +35,7 @@ public partial class _Default : System.Web.UI.Page
         {
             Response.Write("Failed");
         }
-        */
+        
         
         
         //OneLogin.Saml.AuthRequest req = new AuthRequest(new AppSettings(), accountSettings);
